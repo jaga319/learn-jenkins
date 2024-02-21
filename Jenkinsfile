@@ -35,6 +35,7 @@ pipeline {
                 sh """
                   echo 'Testing...'
                   echo '$GREETINGS'
+                  echo 'Good morning'
                 """
             }
         }
