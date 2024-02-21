@@ -9,7 +9,7 @@ pipeline {
     GREETINGS="HELLO"
   } 
   options{
-        timeout(time:1,unit:'HOURS')
+        timeout(time: 1,unit:'HOURS')
         disableConcurrentBuilds()
     }
     parameters {
@@ -35,7 +35,6 @@ pipeline {
                 sh """
                   echo 'Testing...'
                   echo '$GREETINGS'
-                  //sleep 10
                 """
             }
         }
@@ -44,7 +43,7 @@ pipeline {
                 echo 'Deploying'
             }
         }
-        stage('params'){
+        stage(' checking params '){
             steps{
 
                 sh """
