@@ -3,7 +3,14 @@ pipeline {
     node {
         label 'AGENT-1'
     }
-  }  // Build //
+  } 
+  environment{
+
+    GREETINGS="HELLO"
+  } 
+  options{
+        timeout(time:1,unit:'SECONDS')
+    }// Build //
     stages {
         stage('Build') {
             steps {
@@ -12,7 +19,11 @@ pipeline {
         }
         stage('Test') {
             steps {
-                echo 'Testing...'
+                sh """
+                  echo 'Testing...'
+                  echo '$GREETINGS'
+                  sleep 10
+                """
             }
         }
         stage('Deploy') {
